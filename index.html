@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хеппі Бьорздей</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat">
+        <div class="birthday-card hidden">
+            <div class="birthday-card-content">
+                <div class="card-step" data-step="1">
+                <p>нас хотіли розділити</p>
+                <img src="img/split.png">
+                </div>
+
+                <div class="card-step" data-step="2">
+                <p>але ми не розділялись 😎</p>
+                <img src="img/kuku.png">
+                </div>
+
+                <div class="card-step" data-step="3">
+                <p>Ти - мій лучік, що освітлює, а не сліпить.</p>
+                <img src="img/sun.png">
+                </div>
+
+                <div class="card-step" data-step="4">
+                <p>Ти - мій побєдітєль, що побідить усіх.</p>
+                <img src="img/yay.png">
+                </div>
+
+                <div class="card-step" data-step="5">
+                <p>Ти - мощь, ти крємєнь, ти скала!</p>
+                <img src="img/skala.png">
+                </div>
+
+                <div class="card-finale">
+                <img src="img/hb.png">
+                <h1>Хеппі Бьорздей! 🎉</h1>
+                </div>
+            </div>
+
+            <canvas id="confetti"></canvas>
+        </div>
+        <header class="chat-header">
+            <button class="back-btn">←</button>
+
+            <div class="chat-info">
+            <div class="chat-name">long-distance radio</div>
+            <div class="chat-status">online</div>
+            </div>
+        </header>
+
+        <main class="chat-messages">
+            <div class="message received">
+                Прівєтікі ❤️
+            </div>
+        </main>
+
+        <footer class="chat-input">
+            <div class="quick-replies">
+                <button class="reply-btn" data-action="hello">
+                    Прівєт прівєт 👋
+                </button>
+
+                <button class="reply-btn" data-action="how">
+                    Пака-пака
+                </button>
+
+                <button class="reply-btn" data-action="custom">
+                    Проявлю творчість і напишу щось своє
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="js.js"></script>
+</body>
+</html>

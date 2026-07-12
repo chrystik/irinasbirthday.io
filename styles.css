@@ -1,0 +1,490 @@
+body {
+  margin: 0;
+  font-family: 'Google Sans Code', monospace;
+  background: #0f0f0f;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.chat {
+  position: relative;
+  width: 390px;
+  height: 100dvh;
+  background: #212121;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
+}
+
+.chat-header {
+  height: 72px;
+  background: #2b2b2b;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chat-name {
+  color: white;
+  font-weight: 600;
+}
+
+.chat-status {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  line-height: 1.4;
+}
+
+.received {
+  background: #2f2f2f;
+  color: white;
+}
+
+.chat-input {
+  padding: 16px;
+  background: #212121;
+}
+
+.quick-replies {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.reply-btn {
+  background: #2f2f2f;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-row input {
+  flex: 1;
+  background: #2f2f2f;
+  border: none;
+  border-radius: 20px;
+  padding: 14px 18px;
+  color: white;
+  font-family: inherit;
+}
+
+.input-row button {
+  width: 48px;
+  border: none;
+  border-radius: 50%;
+  background: #4d7cff;
+  color: white;
+  cursor: pointer;
+}
+
+
+.system-message {
+  align-self: center;
+  font-size: 13px;
+  color: #9d9d9d;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 8px 14px;
+  border-radius: 999px;
+  max-width: fit-content;
+}
+
+.quick-replies {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reply-btn {
+  background: #2f2f2f;
+  border: none;
+  border-radius: 18px;
+  color: white;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background .2s;
+}
+
+.reply-btn:hover {
+  background: #3a3a3a;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background: #4d7cff;
+  color: white;
+}
+
+.message-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reply-btn:disabled {
+  opacity: .5;
+  cursor: default;
+}
+
+.reply-btn.disabled {
+  position: relative;
+  padding-bottom: 30px;
+}
+
+.reply-btn.disabled::after {
+  content: 'а всьо, а раньше треба було';
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
+  font-size: 10px;
+  color: #9d9d9d;
+}
+
+.peek-photo {
+  width: 180px;
+  position: relative;
+  left: -20px;
+  animation: peekIn .6s ease forwards;
+}
+
+@keyframes peekIn {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.chat-messages {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+}
+
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 20px;
+  line-height: 1.4;
+  width: fit-content;
+}
+
+.message.received {
+  align-self: flex-start;
+  background: #2f2f2f;
+  color: white;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background: #4d7cff;
+  color: white;
+}
+
+.message.received {
+  align-self: flex-start;
+  background: #2f2f2f;
+  color: white;
+  border-bottom-left-radius: 6px;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background: #4d7cff;
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+.quick-replies {
+  transition:
+    opacity .4s ease,
+    transform .4s ease;
+}
+
+.quick-replies.is-hiding {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+.chat-gif {
+  width: 220px;
+  max-width: 80%;
+  border-radius: 20px;
+  align-self: flex-start;
+  animation: gifAppear .5s ease;
+}
+
+.sent-photo {
+  width: 180px;
+  align-self: flex-end;
+  position: relative;
+  right: -20px;
+  animation: sentPhotoIn .6s ease forwards;
+}
+
+@keyframes sentPhotoIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.birthday-card {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 18, 18, .96);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
+  box-sizing: border-box;
+
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.birthday-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.birthday-card-content {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+.card-step,
+.card-finale {
+  display: none;
+}
+
+.card-step.active,
+.card-finale.active {
+  display: block;
+  animation: fadeIn .8s;
+}
+
+.card-step img,
+.card-finale img {
+  width: 220px;
+  max-width: 80%;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.card-step p {
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+.card-finale h1 {
+  font-size: 56px;
+  margin-top: 30px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.boom-image {
+  width: 220px;
+  max-width: 90%;
+  display: block;
+  margin: 30px auto;
+
+  animation: boom .5s;
+}
+
+@keyframes boom {
+  0% {
+    opacity: 0;
+    transform: scale(.2) rotate(-12deg);
+  }
+
+  70% {
+    transform: scale(1.12) rotate(4deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.birthday-card-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+}
+
+.birthday-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.birthday-line {
+  font-size: 30px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.word {
+  opacity: 0;
+  animation: wordIn .4s forwards;
+}
+
+@keyframes wordIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.final-image {
+  width: 280px;
+  animation:
+    boom .7s,
+    pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.birthday-title {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.birthday-card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.birthday-scene {
+  text-align: center;
+  animation: sceneIn .5s ease;
+}
+
+@keyframes sceneIn {
+  from {
+    opacity: 0;
+    transform: scale(.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.birthday-finale {
+  animation: finaleIn .9s ease;
+  text-align: center;
+}
+
+@keyframes finaleIn {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
