@@ -509,39 +509,24 @@ function handleDayAnswer(answer) {
   }
 
     if (answer === 'День Народження Тетріса') {
-        setTimeout(() => {
-            showSingleOption(
-            'пограться',
-            () => {
-                window.open(
-                'https://tetris.com/play-tetris',
-                '_blank'
-                );
-
-                window.addEventListener(
-                'focus',
-                function onFocus() {
-                    setTimeout(() => {
-                    addMessage(
-                        'капєц, стільки років стукнуло, а їй би тікі грацця'
-                    );
-                    }, 500);
-
-                    setTimeout(() => {
-                    showWhatYouWantFlow();
-                    }, 1800);
-
-                    window.removeEventListener(
-                    'focus',
-                    onFocus
-                    );
-                }
-                );
-            }
-            );
-        }, 500);
-
-        return;
+      setTimeout(() => {
+        showSingleOption(
+          'пограться',
+          () => {
+            setTimeout(() => {
+              addMessage(
+                'капєц, стільки років стукнуло, а їй би тікі грацця'
+              );
+            }, 500);
+    
+            setTimeout(() => {
+              showWhatYouWantFlow();
+            }, 1800);
+          }
+        );
+      }, 500);
+    
+      return;
     }
 }
 
